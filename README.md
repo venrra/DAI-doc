@@ -1,4 +1,4 @@
-# :construction: DAI
+# :construction: DAI-doc
 Repositorio para la asignatura de Desarrollo de Aplicaciones para internet del grado de ingeniería informática en la UGR entre 2020-2021.
 
 ## :new: Actualización de octubre 2020
