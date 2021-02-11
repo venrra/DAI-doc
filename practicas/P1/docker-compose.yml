@@ -6,3 +6,4 @@ services:
     volumes:
       - ./ejercicios:/ejercicios
     working_dir: /ejercicios
+      

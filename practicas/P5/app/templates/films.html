@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+{{ super() }}
+
+<div class="container-xl">
+	<div class="table-responsive">
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-4 ">
+						<h2>Sakila <b>Films </b></h2>
+					</div>
+                    <div class="col-sm-6">
+                        <div class="search-box">
+                            <form method="POST">
+                                <input type="text" class="form-control" name="buscar" placeholder="Buscar por Titulo&hellip;">
+                            </form>
+                        </div>
+                    </div>
+					<div class="col-sm-2 ">
+						<a href="/add_films" class="btn btn-success"> <span>Add film</span></a>
+					</div>
+				</div>
+			</div>
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>Datos</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+                    {% for film in films %}
+					<tr>
+						<td>
+                            <ul class="list-group bg-light">
+                                {% for i in film %}
+                                    {%if i == 'Actors'%}
+                                        <li class="list-group-item"><strong>Actors:</strong> </li>
+                                        <ul list-group bg-light>
+                                        {% for actor in film[i] %}
+                                            <li class="list-group bg-light">Apellido: {{actor['Last name']}}, Nombre: {{actor['First name']}}, id: {{actor['actorId']}}</li>
+                                        {%endfor%}
+                                        </ul>
+                                    {%else%}
+                                        <li class="list-group-item"><strong>{{i}}:</strong> {{film[i]}} </li>
+                                    {%endif%}
+                                {%endfor%}
+                            </ul>
+                        </td>
+						<td>
+                            <form action="{{ url_for('editar_db')}}" method="POST">
+                                <div class="form-group">
+                                    <input type="hidden" name="editar" value="{{film['Title']}}">
+                                    <input type="submit" class="btn btn-lg btn-warning"  value="Editar" >
+                                </div>
+                            </form>
+                            <form action="{{ url_for('borrar_db')}}" method="POST">
+                                <div class="form-group"></div>
+                                    <input type="hidden" name="borrar" value="{{film['Title']}}">
+                                    <input type="submit" class="btn btn-lg btn-danger"  value="Borrar" >
+                                </div>
+                            </form>
+                        </td>
+					</tr>
+                    {%endfor%}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock main %}

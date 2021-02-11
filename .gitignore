@@ -131,3 +131,6 @@ dmypy.json
 
 # configuracion vscode
 .vscode
+
+#pruebas
+pru.py

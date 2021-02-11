@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block  main %}
+
+<div class="container d-flex justify-content-center">
+    <form class="col-6">
+        <div class="form-group">
+        {% if logged %}
+            <h1>Hola {{ user }} tus datos son estos:</h1>
+        </div>
+        <fieldset disabled>
+            <div class="form-group">
+            <label for="disabledTextInputEmail">Correo Electrónico</label>
+            <input type="text" id="disabledTextInputEmail" class="form-control" placeholder={{user}}>
+            </div>
+            <div class="form-group">
+                <label for="disabledTextInputName">Nombre</label>
+                <input type="text" id="disabledTextInputName" class="form-control" placeholder={{name}}>
+            </div>
+            <div class="form-group">
+                <label for="disabledTextInputApellidos">Apellidos</label>
+                <input type="text" id="disabledTextInputApellidos" class="form-control" placeholder={{apellidos}}>
+            </div>
+        </fieldset>
+        <a href="/edit" class="btn btn-outline-success">Editar</a>
+        {% endif %}
+    </form>
+  </div>
+
+{% endblock main %}

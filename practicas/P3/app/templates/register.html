@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block  main %}
+{% if ms %}
+<div class="alert alert-success" role="alert">
+    {{ms}}
+</div>
+{% endif %}
+
+<form method="POST">
+    <div class="form-group">
+      <label for="inputEmail1">Correo Electrónico</label>
+      <input type="email" class="form-control" id="inputEmail1" name = 'user' aria-describedby="emailHelp" placeholder="Correo Electrónico" required="true">
+    </div>
+    <div class="form-group">
+        <label for="NameInput">Nombre</label>
+        <input type="text" class="form-control" id="NameInput" name = "nombre" placeholder="Nombre" required="true">
+    </div>
+    <div class="form-group">
+        <label for="ApellidoInput">Apellidos</label>
+        <input type="text" class="form-control" id="ApellidoInput" name = "apellidos" placeholder="Apellidos" required="true">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword1">Password</label>
+      <input type="password" class="form-control" id="inputPassword1" name = 'password' placeholder="Password" required="true">
+    </div>
+
+    <div class="form-group">
+        <label for="inputPassword2">Repite la Password</label>
+        <input type="password" class="form-control" id="inputPassword2" name = 'password2' placeholder="Password" required="true">
+    </div>
+    <button type="submit" class="btn btn-primary">Registrase</button>
+</form>
+{% endblock main %}
