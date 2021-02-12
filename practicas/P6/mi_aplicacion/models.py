@@ -11,6 +11,8 @@ class Libro(models.Model):
     return self.titulo
 
   def get_libro(key, value):
+    if key == 'id':
+      libro = Libro.objects.all().filter(id=value)
     if key == 'titulo':
       libro = Libro.objects.all().filter(titulo=value)
     elif key == 'autor':
@@ -27,6 +29,8 @@ class Prestamo(models.Model):
     return str(self.libro) + "prestado a " + str(self.usuario)
 
   def  get_prestamo(key, value):
+    if key == 'id':
+      prestamo = Prestamo.objects.all().filter(id=value)
     if key == 'libro':
       id=0
       libro = Libro.get_libro('titulo', value)

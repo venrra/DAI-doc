@@ -48,7 +48,7 @@
                                 </ul>
                                 <div class="row container-fluid">
                                     <div class=" align-self-center">
-                                        <form action="book/edit" class='form-inline ' method="POST">
+                                        <form action="/book/edit" class='form-inline ' method="POST">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <input type="hidden" name="edit" value="{{book.id}}">
@@ -57,10 +57,11 @@
                                         </form>
                                     </div>
                                     <div class=" align-self-center">
-                                        <form action="{% url 'edit_book'%}" class='form-inline' method="DELETE">
-                                            <div class="form-group"></div>
-                                                <input type="hidden" name="delete" value="{{book.id}">
-                                                <input type="submit" class="btn btn-danger"  value="Borrar" >
+                                        <form action="/book/edit" class='form-inline' method="POST">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <input type="hidden" name="delete" value="{{book.id}}">
+                                                <input type="submit" class="btn btn-danger" value="Borrar" >
                                             </div>
                                         </form>
                                     </div>

@@ -10,7 +10,6 @@ BUSQUEDA_BOOKS = (
 
 BUSQUEDA_LOANS = (
     ('libro', 'libro'),
-    ('fecha', 'fecha'),
     ('usuario', 'usuario')
 )
 
