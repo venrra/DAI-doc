@@ -272,7 +272,7 @@ def api_1():
 def api_2(filmId):
     if request.method == 'GET':
         try:
-            films = dbMongo.Sakila_films.find({'Title':filmId})
+            films = dbMongo.Sakila_films.find({'Title':{"$regex":filmId}})
             lista_films = []
             for film in films:
                 lista_films.append(loads(dumps(film)))

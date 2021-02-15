@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block main %}
+<form method="POST">
+ <div class="form-group">
+    <label for="imputTitulo">Titulo</label>
+    <input type="text" class="form-control" id="imputTitulo" value="{{Title}}" name = "Title" value="{{edit }}">
+  </div>
+  <div class="form-group">
+      <label for="Actors">Actores</label>
+      <input type="text" class="form-control" id="Actors" value="{{Actors}}" name = "Actors">
+    </div>
+  <div class="form-group">
+    <label for="imputCategoria">Categoría</label>
+    <input type="text" class="form-control" id="imputCategoria" value="{{Category}}" name = "Category">
+  </div>
+  <div class="form-group">
+      <label for="imputDescrip">Descripción</label>
+      <input type="text" class="form-control" id="imputDescrip" value="{{Description}}" name = "Description">
+  </div>
+  <div class="form-group">
+      <label for="Length">Length</label>
+      <input type="text" class="form-control" id="Length" value="{{Length}}" name = "Length">
+  </div>
+  <div class="form-group">
+      <label for="Rating">Rating</label>
+      <input type="text" class="form-control" id="Rating" value="{{Rating}}" name = "Rating">
+  </div>
+  <div class="form-group">
+      <label for="RentalDuration">Rental Duration</label>
+      <input type="text" class="form-control" id="RentalDuration" value="{{Rental_Duration}}" name = "Rental_Duration">
+  </div>
+  <div class="form-group">
+      <label for="ReplacementCost">Replacement Cost</label>
+      <input type="text" class="form-control" id="ReplacementCost" value="{{Replacement_Cost}}" name = "Replacement_Cost">
+  </div>
+  <div class="form-group">
+      <label for="SpecialFeatures">Special Features</label>
+      <input type="text" class="form-control" id="SpecialFeatures" value="{{Special_Features}}" name = "Special_Features">
+  </div>
+
+    <div class="modal-footer">
+        <a href="/films" class=" btn btn-warning" role="button" aria-pressed="true">Cancelar</a>
+        <input type="hidden" name="guardar" value="{{Title}}">
+        <input type="submit" class="btn btn-danger" name="editar" value="Guardar">
+    </div>
+  </form>
+{% endblock main %}

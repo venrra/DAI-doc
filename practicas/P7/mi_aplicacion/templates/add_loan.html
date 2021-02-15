@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block main %}
+<form method="post">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <a href="{% url 'loans' %}" class="btn btn-warning"> <span>Cancelar</span></a>
+    <button type="submit" class="btn btn-primary">Aceptar</button>
+</form>
+{% endblock main %}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Manuel Hidalgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>{% block title %}Practica 7{% endblock title%} </title>
+    {% block html_head %}{% endblock %}
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img id="main-icon" src="https://cdn.pixabay.com/photo/2017/08/21/04/13/books-2664021_960_720.png" alt="Logo" style="width:40px;">
+        <a class="navbar-brand" href="#">Librería</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index'%}">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'books'%}">Libros <span class="sr-only">(current)</span></a>
+                </li>
+                {% if perms.mi_aplicacion.view_prestamo %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'loans'%}">Prestamos <span class="sr-only">(current)</span></a>
+                </li>
+                {%endif%}
+                {% if perms.mi_aplicacion.add_libro and perms.mi_aplicacion.add_prestamo %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Añadir
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'add_book'%}">Nuevo Libro</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'add_loan'%}">Nuevo préstamo</a>
+                    </div>
+                </li>
+                {% endif %}
+            </ul>
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hola, {{user.get_username}}</a>
+                </li>
+                {%endif%}
+                <li class="nav-item">
+                    <div class="nav-item btn-group">
+                        {% if user.is_authenticated %}
+                        <!-- <a href="#" class="btn btn-outline-success">Editar perfil</a> -->
+                        <a href="/accounts/logout/?next={{request.path}}" class="btn btn-outline-success">Desconectar</a>
+
+                        {% else %}
+                        <a href="/accounts/login/?next={{request.path}}" class="btn btn-outline-success">Entrar</a>
+                        <a href="/accounts/signup/?next={{request.path}}" class="btn btn-outline-success">Registrase</a>
+                        {%endif%}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+        <!-- Aside main footer -->
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <main class="col-10">
+                    {% block  main %}
+                        {% if ms %}
+                        <div class="alert alert-success" role="alert">
+                            {{ms}}
+                        </div>
+                        {% endif %}
+
+                        {% block content %}{% endblock %}
+                    {% endblock main %}
+                </main>
+            </div>
+            <div class="row">
+                <footer class="footer col-12 d-flex justify-content-center bg-secondary">
+                        {% block footer %}
+                        <section class=" text-center text-white">
+                            <div>
+                              <h3>Aplicación en construcción</h3>
+                            </div class=" justify-content-center">
+                                <p>Manuel Hidalgo Carmona</p>
+                        </section>
+                        {% endblock footer %}
+                </footer>
+            </div>
+        </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

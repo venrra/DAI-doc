@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block main %}
+<div class="container-xl">
+	<div class="table-responsive-sm">
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row ">
+					<div class="col-2 align-self-center ">
+						<h2><b>Loans </b></h2>
+					</div>
+                    <div class="col-7 align-self-center">
+                        <form method="POST" class="form-inline">
+                            {% csrf_token %}
+                            <div class="form-row ">
+                                <div class="form-group col-md-3 mb-0">
+                                    {{ form.busqueda | as_crispy_field}}
+                                </div>
+                                <div class="form-group col-md-7 mb-0 ">
+                                    {{ form.search | as_crispy_field}}
+                                </div>
+                                <div class="form-group col-md-2 mb-0 ">
+                                    <input type="submit" class="btn btn-primary" value="Buscar">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+					<div class="col-3 align-self-center">
+						<a href="{% url 'add_loan' %}" class="btn btn-success"> <span>Add Loan</span></a>
+					</div>
+				</div>
+			</div>
+			<table class="table table-bordered table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Prestamos</th>
+					</tr>
+				</thead>
+				<tbody>
+                    {% for loan in loans %}
+					<tr>
+						<td>
+                            <div class="justify-content-center">
+                                <ul class="list-group bg-light">
+                                    <li class="list-group-item"><strong class="text-success">Id: </strong> {{loan.id}} </li>
+                                    <li class="list-group-item"><strong class="text-success">Libro: </strong> {{loan.libro}} </li>
+                                    <li class="list-group-item"><strong class="text-success">Fecha: </strong> {{loan.fecha}} </li>
+                                    <li class="list-group-item"><strong class="text-success">Usuario: </strong> {{loan.usuario}} </li>
+                                </ul>
+                                <div class="row container-fluid">
+                                    <div class=" align-self-center">
+                                        <form action="/loan/edit" class='form-inline ' method="POST">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <input type="hidden" name="edit" value="{{loan.id}}">
+                                                <input type="submit" class="btn btn-warning"  value="Editar" >
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class=" align-self-center">
+                                        <form action="/loan/edit" class='form-inline' method="POST">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <input type="hidden" name="delete" value="{{loan.id}}">
+                                                <input type="submit" class="btn btn-danger"  value="Borrar" >
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+					</tr>
+                    {%endfor%}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock main %}

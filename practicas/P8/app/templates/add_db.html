@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block main %}
+<form method="POST">
+ <div class="form-group ">
+    <label for="imputTitulo">Titulo</label>
+    <input type="text" class="form-control" id="imputTitulo" placeholder="Titulo" name = "Title" value="">
+  </div>
+  <div class="form-group">
+      <label for="Actors">Actores</label>
+      <input type="text" class="form-control" id="Actors" name = "Actors" value="">
+    </div>
+  <div class="form-group">
+    <label for="imputCategoria">Categoría</label>
+    <input type="text" class="form-control" id="imputCategoria" name = "Category" value="">
+  </div>
+  <div class="form-group">
+      <label for="imputDescrip">Descripción</label>
+      <input type="text" class="form-control" id="imputDescrip" name = "Description" value="">
+  </div>
+  <div class="form-group">
+      <label for="Length">Length</label>
+      <input type="text" class="form-control" id="Length" name = "Length" value="">
+  </div>
+  <div class="form-group">
+      <label for="Rating">Rating</label>
+      <input type="text" class="form-control" id="Rating" name = "Rating" value="">
+  </div>
+  <div class="form-group">
+      <label for="RentalDuration">Rental Duration</label>
+      <input type="text" class="form-control" id="RentalDuration" name = "Rental_Duration" value="">
+  </div>
+  <div class="form-group">
+      <label for="ReplacementCost">Replacement Cost</label>
+      <input type="text" class="form-control" id="ReplacementCost" name = "Replacement_Cost" value="">
+  </div>
+  <div class="form-group">
+      <label for="SpecialFeatures">Special Features</label>
+      <input type="text" class="form-control" id="SpecialFeatures" name = "Special_Features" value="">
+  </div>
+
+  <div class="modal-footer">
+      <a href="/films" class=" btn btn-warning" role="button" aria-pressed="true">Cancelar</a>
+      <input type="submit" class="btn btn-success" value="add">
+  </div>
+</form>
+
+<!-- <div class="container d-flex justify-content-center">
+    <form method="POST" action="/add_films" class="from-inline ">
+        <div class="form-row">
+            <div class="form-group row col">
+                <label class="col-sm-2 col-form-label" for="imputTitulo">Titulo</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="imputTitulo" placeholder="Titulo" name = "Title" value="">
+                </div>
+            </div>
+            <div class="form-group row col">
+                <label class="col-sm-2 col-form-label" for="Actors">Actores</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="Actors" name = "Actors" value="">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group row col">
+                <label class="col-sm-2 col-form-label" for="imputCategoria">Categoría</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="imputCategoria" name = "Category" value="">
+                </div>
+            </div>
+            <div class="form-group row col">
+                <label class="col-sm-2 col-form-label" for="imputDescrip">Descripción</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="imputDescrip" name = "Description" value="">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group row col">
+                <label class="col-sm-2 col-form-label" for="Length">Length</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="Length" name = "Length" value="">
+                </div>
+            </div>
+            <div class="form-group row col">
+                <label class="col-sm-2 col-form-label" for="Rating">Rating</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="Rating" name = "Rating" value="">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group row col">
+                <label class="col-sm-2 col-form-label" for="RentalDuration">Rental Duration</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="RentalDuration" name = "Rental_Duration" value="">
+                </div>
+            </div>
+            <div class="form-group row col">
+                <label class="col-sm-2 col-form-label" for="ReplacementCost">Replacement Cost</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="ReplacementCost" name = "Replacement_Cost" value="">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row col">
+            <label class="col-sm-2 col-form-label" for="SpecialFeatures">Special Features</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="SpecialFeatures" name = "Special_Features" value="">
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <input type="submit" class="btn btn-success" value="add">
+        </div>
+    </form>
+</div> -->
+{% endblock main %}

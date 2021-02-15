@@ -38,12 +38,13 @@
                             <ul class="list-group bg-light">
                                 {% for i in film %}
                                     {%if i == 'Actors'%}
-                                        <li class="list-group-item"><strong>Actors:</strong> </li>
-                                        <ul list-group bg-light>
-                                        {% for actor in film[i] %}
-                                            <li class="list-group bg-light">Apellido: {{actor['Last name']}}, Nombre: {{actor['First name']}}, id: {{actor['actorId']}}</li>
-                                        {%endfor%}
-                                        </ul>
+                                        <li class="list-group-item"><strong>Actors:</strong>
+                                            <ul list-group bg-light>
+                                            {% for actor in film[i] %}
+                                                <li class="list-group bg-light">Apellido: {{actor['Last name']}}, Nombre: {{actor['First name']}}, id: {{actor['actorId']}}</li>
+                                            {%endfor%}
+                                            </ul>
+                                        </li>
                                     {%else%}
                                         <li class="list-group-item"><strong>{{i}}:</strong> {{film[i]}} </li>
                                     {%endif%}

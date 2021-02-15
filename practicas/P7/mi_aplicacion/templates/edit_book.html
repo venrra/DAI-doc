@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block main %}
+<div class="container d-flex justify-content-center">
+    <form method="post" class="justify-content-center">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <a href="{% url 'books' %}" class="btn btn-warning"> <span>Cancelar</span></a>
+        <button type="submit" class="btn btn-primary" name="save" value="{{id}}">Guardar</button>
+    </form>
+</div>
+{% endblock main %}

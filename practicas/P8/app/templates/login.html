@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block  main %}
+{% if ms%}
+<div class="alert alert-success" role="alert">
+    {{ms}}
+</div>
+{% endif %}
+<form method="POST">
+    <div class="form-group">
+      <label for="inputEmail1">Correo Electrónico</label>
+      <input type="email" class="form-control" id="inputEmail1" name = 'user' aria-describedby="emailHelp" placeholder="Correo Electrónico">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword1">Password</label>
+      <input type="password" class="form-control" id="inputPassword1" name = 'password' placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Entra</button>
+  </form>
+{% endblock main %}
